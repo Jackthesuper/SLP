@@ -1,0 +1,93 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    .form-control:disabled{
+      background-color: #f8f9fa;
+    }
+  </style>
+  <title>Hello, world!</title>
+</head>
+
+<body>
+
+  <!-- {{> hello}}
+  {{> info}} -->
+  {{> slp}}
+  <footer class="container" style="position: absolute;margin-left:5%;margin-right:5%;margin-bottom: 0;bottom: 1%;width: 100%;">
+    <p>Copyright by Zijie Shen</p>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="info">
+  <h2>Learn Meteor!</h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+  </ul>
+</template>
+
+<template name="slp">
+  <div class="jumbotron" style="margin-left:5%;margin-right:5%;">
+    <div class="container">
+      <h2>Spoken Language Processing!</h2>
+    </div>
+  </div>
+  <div class="card-group" style="padding-left:5%; padding-right:5%;">
+    <div class="card">
+      <!-- <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile01">
+          <label class="custom-file-label" for="inputGroupFile01">Choose Audio file</label>
+        </div>
+        <div class="input-group-prepend">
+           <button class="btn btn-outline-secondary" type="button">Click to process</button>
+        </div>
+      </div> -->
+      <div class="card-body">
+        <form action="http://jkorpela.fi/cgi-bin/echo.cgi"
+          enctype="multipart/form-data" method="post">
+          <p>
+          Please specify an audio file:<br>
+          <input type="file" class="filename" name="datafile" size="40">
+          </p>
+        </form>
+        <button class="btn btn-outline-secondary process" type="button" style="width:100%;">Click to process</button>
+        <br><br>
+        <form>
+          <label for="fname">Transcription of the speech:</label>
+          <input type="text" class="form-control js-transcription" id="fname" name="fname" style="width:100%" placeholder="" disabled>
+        </form>
+        <br><br>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <p>Your symptom intent is:</p>
+        <div class="input-group mb-3">
+          <input type="text" disabled class="form-control js-symptom" placeholder="" aria-label="symptom" aria-describedby="basic-addon2">
+        </div>
+        <p>The department you need to go is:</p>
+        <div class="input-group mb-3">
+          <input type="text" disabled class="form-control js-department" placeholder="" aria-label="department" aria-describedby="basic-addon2">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
